@@ -104,13 +104,8 @@ public final class Serializer {
 
         final ArrayList<byte[]> buffers = new ArrayList<>();
 
-        file.skip(MAGIC_NUMBERS.length);  // skip over these bytes
-
         while (true) {
             final int size = file.read();  // get the size of the next buffer
-
-            // check if we reached the end of the file
-            if (size == -1) { break; }
 
             // append the size to the buffer
             buffers.add(file.read(size));
